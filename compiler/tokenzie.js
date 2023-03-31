@@ -20,7 +20,7 @@ const State = {
   tagEndName: 6  // 标签结束名称
 }
 
-function tokenzie(str) {
+export function tokenzie(str) {
   let currentState = State.initial
 
   const chars = []
@@ -108,5 +108,5 @@ function tokenzie(str) {
   return tokens
 }
 
-console.log('tokenzie("<p>Vue</p>")', tokenzie("<p>Vue</p>"))
-console.log('tokenzie("<p><span>a</span><span>b</span></p>")', tokenzie("<p><span>a</span><span>b</span></p>"))
+// console.log('tokenzie("<p>Vue</p>")', tokenzie("<p>Vue</p>"))
+// console.log('tokenzie("<p><span>a</span><span>b</span></p>")', tokenzie("<p><span>a</span><span>b</span></p>"))
