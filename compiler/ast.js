@@ -1,5 +1,6 @@
 import { tokenzie } from './tokenzie.js'
 
+// 转化为模板 ast
 function parse(str) {
   const tokens = tokenzie(str)
   console.log(tokens)
@@ -49,5 +50,50 @@ function parse(str) {
 
   return root
 }
+
+// 将
+// [
+//   { type: 'tag', name: 'p' },
+//   { type: 'tag', name: 'span' },
+//   { type: 'text', content: 'a' },
+//   { type: 'tagEnd', name: 'span' },
+//   { type: 'tag', name: 'span' },
+//   { type: 'text', content: 'b' },
+//   { type: 'tagEnd', name: 'span' },
+//   { type: 'tagEnd', name: 'p' }
+// ]
+
+// 转换为 ast (模板)
+// {
+//   "type": "Root",
+//   "children": [
+//     {
+//       "type": "Element",
+//       "tag": "p",
+//       "children": [
+//         {
+//           "type": "Element",
+//           "tag": "span",
+//           "children": [
+//             {
+//               "type": "Text",
+//               "content": "a"
+//             }
+//           ]
+//         },
+//         {
+//           "type": "Element",
+//           "tag": "span",
+//           "children": [
+//             {
+//               "type": "Text",
+//               "content": "b"
+//             }
+//           ]
+//         }
+//       ]
+//     }
+//   ]
+// }
 
 parse(`<p><span>a</span><span>b</span></p>`)
