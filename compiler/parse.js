@@ -1,7 +1,7 @@
 import { tokenzie } from './tokenzie.js'
 
 // 转化为模板 ast
-function parse(str) {
+export function parse(str) {
   const tokens = tokenzie(str)
   console.log(tokens)
 
@@ -96,4 +96,4 @@ function parse(str) {
 //   ]
 // }
 
-parse(`<p><span>a</span><span>b</span></p>`)
+// parse(`<p><span>a</span><span>b</span></p>`)
